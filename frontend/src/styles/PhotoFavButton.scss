@@ -1,3 +1,4 @@
+/* Styles for the favorite button container */
 .photo-list__fav-icon {
   position: relative;
   top: 8px;
@@ -12,7 +13,23 @@
   border-radius: 100%;
 }
 
+/* Styles for the heart icon */
 .photo-list__fav-icon-svg {
   padding: 7px;
   top: 2px;
+}
+
+.photo-list__fav-icon-svg svg {
+  fill: #EEEEEE; /* Default color */
+  stroke: #C80000; /* Default stroke color */
+}
+
+.photo-list__fav-icon-svg svg.is-favorited {
+  fill: #C80000; /* Red when favorited */
+  stroke: #FFFFFF; /* White stroke when favorited */
+}
+
+.photo-list__fav-icon-svg svg:hover {
+  fill: #C80000; /* Change fill color on hover */
+  stroke: #FFFFFF; /* Change stroke color on hover */
 }
