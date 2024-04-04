@@ -9,10 +9,13 @@ const PhotoListItem = ({ id, imageSource, profile, username, location, isFavorit
 };
 
 console.log("isFavorited:", isFavorited);
+
     return (
         <div className="photo-list__item" >
             <PhotoFavButton onFavPressed={() => onFavPressed(id)} isFavorited={isFavorited} />
+
             <img className="photo-list__image" src={imageSource} alt={`Photo by ${username}`} />
+
             <div className="photo-list__user-details">
                 <img className="photo-list__user-profile" src={profile} alt={`Profile of ${username}`} />
                 <div className="photo-list__user-info">
