@@ -1,22 +1,14 @@
 import React from 'react';
-import TopNavigationBar from './TopNavigationBar';
-import PhotoList from './PhotoList';
+import TopNavigationBar from '../components/TopNavigationBar';
+import PhotoList from '../components/PhotoList';
 
 import '../styles/HomeRoute.scss';
 
-const HomeRoute = ({ topics, onLoadTopic, isFavorited }) => {
+const HomeRoute = ({ favoritedPhotos, onFavPressed }) => {
   return (
     <div className="home-route">
-      <TopNavigationBar topics={topics} onLoadTopic={onLoadTopic} isFavorited={isFavorited}/>
-      <PhotoList  
-          key={photo.id}
-          id={photo.id}
-          imageSource={photo.urls.regular}
-          profile={photo.user.profile}
-          username={photo.user.username}
-          location={photo.location}
-          isFavorited={favoritedPhotos.includes(photo.id)}
-          onFavPressed={onFavPressed}/>
+      <TopNavigationBar/>
+      <PhotoList favoritedPhotos={favoritedPhotos} onFavPressed={onFavPressed} />
     </div>
   );
 };
