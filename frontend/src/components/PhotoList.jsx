@@ -1,8 +1,9 @@
 import React from "react";
 import PhotoListItem from "./PhotoListItem";
+import photos from "mocks/photos";
 import "../styles/PhotoList.scss";
 
-const sampleDataForPhotoList = [
+/* const sampleDataForPhotoList = [
   {
     id: "1",
     location: {
@@ -54,12 +55,12 @@ const sampleDataForPhotoList = [
       profile: `${process.env.PUBLIC_URL}/profile-1.jpg`,
     },
   },
-];
+]; */
 
 const PhotoList = ({ favoritedPhotos, onFavPressed }) => {
   return (
     <ul className="photo-list">
-      {sampleDataForPhotoList.map((photo) => 
+      {photos.map((photo) => 
         <PhotoListItem 
           key={photo.id}
           id={photo.id}

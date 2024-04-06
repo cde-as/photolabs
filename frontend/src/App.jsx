@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-//import PhotoList from './components/PhotoList';
-//import TopNavigationBar from './components/TopNavigationBar';
-//import TopicList from 'components/TopicList';
+import HomeRoute from 'routes/HomeRoute';
+import photos from 'mocks/photos';
+import topics from 'mocks/topics';
 
 import './App.scss';
-import HomeRoute from 'routes/HomeRoute';
+
 
 
 
@@ -27,11 +27,6 @@ const App = () => {
 
   return (
     <div className="App">
-      {/* <TopNavigationBar/>
-
-      <div className="photo-list">
-      <PhotoList favoritedPhotos={favoritedPhotos} onFavPressed={onFavPressed}/>
-      </div> */}
 
       <HomeRoute favoritedPhotos={favoritedPhotos} onFavPressed={onFavPressed}/>
 

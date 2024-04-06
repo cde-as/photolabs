@@ -7,7 +7,7 @@ import '../styles/HomeRoute.scss';
 const HomeRoute = ({ favoritedPhotos, onFavPressed }) => {
   return (
     <div className="home-route">
-      <TopNavigationBar/>
+      <TopNavigationBar favoritedPhotos={favoritedPhotos}/>
       <PhotoList favoritedPhotos={favoritedPhotos} onFavPressed={onFavPressed} />
     </div>
   );
