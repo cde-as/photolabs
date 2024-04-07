@@ -27,8 +27,6 @@ console.log("isFavorited:", isFavorited);
                     <div className="photo-list__user-location">
                         <p>{location.city}, {location.country}</p>
                     </div>
-
-
                     
                 </div>
             </div>

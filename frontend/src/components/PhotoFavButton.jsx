@@ -17,7 +17,7 @@ function PhotoFavButton({ onFavPressed, isFavorited }) {
                     width={20}
                     height={17}
                     outlineWidth={1}
-                    displayAlert={isFavorited}  // Pass isFavorited as displayAlert
+                    //displayAlert={isFavorited}  // Pass isFavorited as displayAlert
                     selected={isFavorited}   
                 />
             </div>
