@@ -18,6 +18,7 @@ const PhotoList = ({  photos, favoritedPhotos, toggleFavorite }) => {
           isFavorited={favoritedPhotos.includes(photo.id)}
           //onFavPressed={onFavPressed}
           toggleFavorite={toggleFavorite}
+          onClick={() => openModal(photo)}
         />
       )}
     </ul>
