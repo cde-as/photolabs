@@ -1,11 +1,11 @@
 import React from 'react';
 import TopicList from './TopicList';
-//import FavBadge from './FavBadge';
+import FavBadge from './FavBadge';
 import '../styles/TopNavigationBar.scss'
 import FavIcon from './FavIcon';
 
 const TopNavigation = ({ topics, onLoadTopic, displayAlert }) => {
-  const isFavorited = true;
+  const isFavorited = displayAlert;
   
   return (  
     <div className="top-nav-bar">
@@ -14,6 +14,7 @@ const TopNavigation = ({ topics, onLoadTopic, displayAlert }) => {
         <TopicList topics={topics} onLoadTopic={onLoadTopic}/>
         
         <FavIcon isFavorited={isFavorited} selected={true} displayAlert={displayAlert}/>
+        
          
     </div>
   )

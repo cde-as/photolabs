@@ -4,7 +4,7 @@ import PhotoList from '../components/PhotoList';
 
 import '../styles/HomeRoute.scss';
 
-const HomeRoute = ({ photos, topics, onFavPressed }) => {
+const HomeRoute = ({ photos, topics }) => {
   const [favoritedPhotos, setFavoritedPhotos] = useState([]);
   const [displayAlert, setDisplayAlert] = useState(false); // State to manage displayAlert
  
@@ -12,7 +12,9 @@ const HomeRoute = ({ photos, topics, onFavPressed }) => {
   const toggleFavorite = (photoId) => {
     if (favoritedPhotos.includes(photoId)) {
       setFavoritedPhotos(favoritedPhotos.filter(id => id !== photoId));
-      setDisplayAlert(false); // Update displayAlert to false when unfavoriting a photo
+
+      // Update displayAlert based on remaining favorited photos
+      setDisplayAlert(favoritedPhotos.length > 1);
     } else {
       setFavoritedPhotos([...favoritedPhotos, photoId]);
       setDisplayAlert(true); // Update displayAlert to true when favoriting a photo
@@ -21,7 +23,7 @@ const HomeRoute = ({ photos, topics, onFavPressed }) => {
 
   return (
     <div className="home-route">
-      <TopNavigationBar favoritedPhotos={favoritedPhotos} displayAlert={displayAlert}/>
+      <TopNavigationBar topics={topics} displayAlert={displayAlert}/>
       <PhotoList  photos={photos} favoritedPhotos={favoritedPhotos} toggleFavorite={toggleFavorite} />
     </div>
   );
