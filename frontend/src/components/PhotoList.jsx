@@ -4,7 +4,7 @@ import photos from "../mocks/photos";
 import "../styles/PhotoList.scss";
 
 
-const PhotoList = ({ favoritedPhotos, onFavPressed }) => {
+const PhotoList = ({  photos, favoritedPhotos, toggleFavorite }) => {
   return (
     <ul className="photo-list">
       {photos.map((photo) => 
@@ -16,7 +16,8 @@ const PhotoList = ({ favoritedPhotos, onFavPressed }) => {
           username={photo.user.name}
           location={photo.location}
           isFavorited={favoritedPhotos.includes(photo.id)}
-          onFavPressed={onFavPressed}
+          //onFavPressed={onFavPressed}
+          toggleFavorite={toggleFavorite}
         />
       )}
     </ul>

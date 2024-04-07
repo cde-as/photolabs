@@ -6,7 +6,7 @@ import '../styles/TopicList.scss';
 const TopicList = ({ topics, onLoadTopic }) => (
 
   <div className="top-nav-bar__topic-list">
-    {topics.map(({ id, slug, title})=> (
+    {topics && topics.map(({ id, slug, title})=> (
         
         <TopicListItem 
         key={id} 

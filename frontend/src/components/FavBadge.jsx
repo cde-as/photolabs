@@ -6,7 +6,7 @@ import '../styles/FavBadge.scss';
 const FavBadge = ({ isFavorited  }) => {
   return (
     <div className='fav-badge'>
-      <FavIcon selected={isFavorited}/>
+      <FavIcon selected={isFavorited} />
     </div>
   ) 
 };
