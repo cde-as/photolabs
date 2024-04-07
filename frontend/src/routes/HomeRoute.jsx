@@ -4,11 +4,11 @@ import PhotoList from '../components/PhotoList';
 
 import '../styles/HomeRoute.scss';
 
-const HomeRoute = ({ favoritedPhotos, onFavPressed }) => {
+const HomeRoute = ({ photos, topics, favoritedPhotos, onFavPressed }) => {
   return (
     <div className="home-route">
-      <TopNavigationBar favoritedPhotos={favoritedPhotos}/>
-      <PhotoList favoritedPhotos={favoritedPhotos} onFavPressed={onFavPressed} />
+      <TopNavigationBar topics={topics} favoritedPhotos={favoritedPhotos}/>
+      <PhotoList  photos={photos} favoritedPhotos={favoritedPhotos} onFavPressed={onFavPressed} />
     </div>
   );
 };

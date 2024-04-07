@@ -6,8 +6,6 @@ import topics from 'mocks/topics';
 import './App.scss';
 
 
-
-
 // Note: Rendering a single component to build components in isolation
 const App = () => {
   const [favoritedPhotos, setFavoritedPhotos] = useState([]);
@@ -28,7 +26,11 @@ const App = () => {
   return (
     <div className="App">
 
-      <HomeRoute favoritedPhotos={favoritedPhotos} onFavPressed={onFavPressed}/>
+      <HomeRoute 
+      photos={photos} 
+      topics={topics} 
+      favoritedPhotos={favoritedPhotos} 
+      onFavPressed={onFavPressed}/>
 
     </div>
   );
