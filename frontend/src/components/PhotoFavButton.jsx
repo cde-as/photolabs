@@ -8,7 +8,6 @@ function PhotoFavButton({ onFavPressed, isFavorited }) {
     }, [onFavPressed]);
 
     console.log("Favorite button clicked");
-    console.log("isFavorited:", isFavorited);
 
     return (
         <div className="photo-list__fav-icon" onClick={onPressFav}>

@@ -4,7 +4,7 @@ import photos from "../mocks/photos";
 import "../styles/PhotoList.scss";
 
 
-const PhotoList = ({  photos, favoritedPhotos, toggleFavorite }) => {
+const PhotoList = ({ photos, favoritedPhotos, toggleFavorite, openModal }) => {
   return (
     <ul className="photo-list">
       {photos.map((photo) => 
@@ -16,9 +16,8 @@ const PhotoList = ({  photos, favoritedPhotos, toggleFavorite }) => {
           username={photo.user.name}
           location={photo.location}
           isFavorited={favoritedPhotos.includes(photo.id)}
-          //onFavPressed={onFavPressed}
           toggleFavorite={toggleFavorite}
-          onClick={() => openModal(photo)}
+          openModal={openModal}  
         />
       )}
     </ul>
