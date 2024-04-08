@@ -22,7 +22,7 @@ const PhotoListItem = ({ id, imageSource, profile, username, location, isFavorit
 
 
   return (
-    <div className="photo-list__item" onClick={handleImageClick}>
+    <div className="photo-list__item">
       <PhotoFavButton onFavPressed={() => toggleFavorite(id)} isFavorited={isFavorited} />
 
         <img className="photo-list__image" src={imageSource} alt={`Photo by ${username}`} onClick={handleImageClick}/>
@@ -38,9 +38,9 @@ const PhotoListItem = ({ id, imageSource, profile, username, location, isFavorit
                   <p>{location.city}, {location.country}</p>
                 </div>
                     
-                </div>
             </div>
-        </div>
+          </div>
+    </div>
     );
 };
 
