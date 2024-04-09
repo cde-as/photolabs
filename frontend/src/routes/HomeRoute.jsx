@@ -37,9 +37,16 @@ const HomeRoute = ({ photos, topics, setDisplayModal }) => {
 
   return (
     <div className="home-route">
+
       <TopNavigationBar topics={topics} displayAlert={displayAlert}/>
 
-      <PhotoList  photos={photos} favoritedPhotos={favoritedPhotos} toggleFavorite={toggleFavorite} setDisplayModal={setDisplayModal} openModal={openModal} />
+      <PhotoList
+        photos={photos.map(photo => ({ ...photo, similar_photos: photo.similar_photos }))}
+        favoritedPhotos={favoritedPhotos}
+        toggleFavorite={toggleFavorite}
+        setDisplayModal={setDisplayModal}
+        openModal={openModal}
+      />
 
       {isModalOpen && selectedPhoto && (
   <PhotoDetailsModal photo={selectedPhoto} onClose={closeModal} />

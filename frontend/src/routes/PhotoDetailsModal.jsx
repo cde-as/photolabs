@@ -2,11 +2,12 @@ import React from 'react';
 
 import PhotoList from '../components/PhotoList';
 import PhotoFavButton from '../components/PhotoFavButton';
+import photos from '../mocks/photos';
 
 import '../styles/PhotoDetailsModal.scss'
 import closeSymbol from '../assets/closeSymbol.svg';
 
-const PhotoDetailsModal = ({ onClose, onFavPressed, photo, photos }) => {
+const PhotoDetailsModal = ({ onClose, onFavPressed, photo, favoritedPhotos, isFavorited }) => {
 
   return (
     <div className="photo-details-modal">
@@ -30,13 +31,14 @@ const PhotoDetailsModal = ({ onClose, onFavPressed, photo, photos }) => {
                 </div>
             </div>
 
-            <div className="photo-details-modal__header">
-                Similar Photos
-              </div>
-              <div className="photo-details-modal__images">
-                <PhotoList photos={photo.similar_photos} />
-              </div>
           </div>
+
+          <div className="photo-details-modal__header">
+                Similar Photos
+            </div>
+            <div className="photo-details-modal__images">
+              <PhotoList photos={photo.similar_photos}/>    
+            </div>
       </div>
     </div>
   )
