@@ -14,19 +14,6 @@ const PhotoDetailsModal = ({
   toggleFavorite,
   favoritedPhotos,
 }) => {
-  /*     const [isModalOpen, setIsModalOpen] = useState(false); // State to manage modal visibility
-    const [selectedPhoto, setSelectedPhoto] = useState(null);
-  
-    console.log('toggleFav', toggleFavorite)
-
-    const toggleFavorite = (photoId) => {
-      if (favoritedPhotos.includes(photoId)) {
-        setFavoritedPhotos(favoritedPhotos.filter((fav) => fav !== photoId));
-      } else {
-        setFavoritedPhotos([...favoritedPhotos, photoId]);
-      }
-    };
- */
 
   // Function to handle closing the modal
   const closeModal = () => {
@@ -69,6 +56,9 @@ const PhotoDetailsModal = ({
             </div>
           </div>
         </div>
+
+
+        <div className="photo-list__separator"></div> 
 
         <div className="photo-details-modal__header">Similar Photos</div>
 

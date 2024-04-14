@@ -45,9 +45,11 @@ const PhotoListItem = ({
           src={profile}
           alt={`Profile of ${username}`}
         />
-
+      
         <div className="photo-list__user-info">
+
           <h2 className="photo-list__username">{username}</h2>
+          
           <div className="photo-list__user-location">
             <p>
               {location.city}, {location.country}

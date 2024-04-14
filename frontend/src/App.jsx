@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import HomeRoute from "routes/HomeRoute";
 import PhotoDetailsModal from "routes/PhotoDetailsModal";
+import useApplicationData from "hooks/useApplicationData";
 import photos from "mocks/photos";
 import topics from "mocks/topics";
+
 
 import "./App.scss";
 // TODO:
@@ -11,26 +13,17 @@ import "./App.scss";
 
 // Note: Rendering a single component to build components in isolation
 const App = () => {
-  const [displayModal, setDisplayModal] = useState(false);
-  const [favoritedPhotos, setFavoritedPhotos] = useState([]);
-  const [selectedPhoto, setSelectedPhoto] = useState(null);
-  const numFavoritedPhotos = favoritedPhotos.length;
 
-  // Function to toggle favorite state of a photo
-  const toggleFavorite = function (id) {
-    if (favoritedPhotos.includes(id)) {
-      setFavoritedPhotos(favoritedPhotos.filter((fav) => fav !== id));
-    } else {
-      setFavoritedPhotos([...favoritedPhotos, id]);
-    }
-  };
+  const {
+    state,
+    updateToFavPhotoIds,
+    setPhotoSelected,
+    onClosePhotoDetailsModal,
+    
+    
+  } = useApplicationData();
 
-  // const selectedPhoto = photos.length > 0 ? photos[0] : null;
-  // Function to open the modal when an image is clicked
-  const openModal = (photo) => {
-    setSelectedPhoto(photo);
-    setDisplayModal(true);
-  };
+  const { displayModal, favoritedPhotos, selectedPhoto, numFavoritedPhotos, toggleFavorite, openModal, setDisplayModal } = state;
 
   return (
     <div className="App">
