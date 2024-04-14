@@ -1,56 +1,41 @@
-import React, { useState } from 'react';
-import TopNavigationBar from '../components/TopNavigationBar';
-import PhotoList from '../components/PhotoList';
-import PhotoDetailsModal from './PhotoDetailsModal';
+import React, { useState } from "react";
+import TopNavigationBar from "../components/TopNavigationBar";
+import PhotoList from "../components/PhotoList";
+import PhotoDetailsModal from "./PhotoDetailsModal";
 
-import '../styles/HomeRoute.scss';
+import "../styles/HomeRoute.scss";
 
-const HomeRoute = ({ photos, topics, setDisplayModal }) => {
-  const [favoritedPhotos, setFavoritedPhotos] = useState([]);
-  const [displayAlert, setDisplayAlert] = useState(false); // State to manage displayAlert (circle notification)
-  const [isModalOpen, setIsModalOpen] = useState(false); // State to manage modal visibility
-  const [selectedPhoto, setSelectedPhoto] = useState(null);
- 
-  // Function to toggle favorited status of a photo
-  const toggleFavorite = (photoId) => {
-    if (favoritedPhotos.includes(photoId)) {
-      setFavoritedPhotos(favoritedPhotos.filter(id => id !== photoId));
+// TODO
+// 1. remove photo details from this component up to App
+// 2. take your logic for leveraging that component and put it up in app
+// 3. clean up here. Only Photolist and Top Nav should be in here.
 
-      // Update displayAlert based on remaining favorited photos
-      setDisplayAlert(favoritedPhotos.length > 1);
-    } else {
-      setFavoritedPhotos([...favoritedPhotos, photoId]);
-      setDisplayAlert(true); // Update displayAlert to true when favoriting a photo
-    }
-  };
-
-    // Function to handle opening the modal and setting the selected photo
-  const openModal = (photo) => {
-    setSelectedPhoto(photo);
-    setIsModalOpen(true);
-  };
-  
-  // Function to handle closing the modal
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
+const HomeRoute = ({
+  photos,
+  topics,
+  setDisplayModal,
+  favoritedPhotos,
+  toggleFavorite,
+  displayAlert,
+  openModal,
+  numFavoritedPhotos
+}) => {
 
   return (
     <div className="home-route">
-
-      <TopNavigationBar topics={topics} displayAlert={displayAlert}/>
+      <TopNavigationBar topics={topics} displayAlert={displayAlert} numFavoritedPhotos={numFavoritedPhotos} />
 
       <PhotoList
-        photos={photos.map(photo => ({ ...photo, similar_photos: photo.similar_photos }))}
+        photos={photos.map((photo) => ({
+          ...photo,
+          similar_photos: photo.similar_photos,
+        }))}
         favoritedPhotos={favoritedPhotos}
         toggleFavorite={toggleFavorite}
         setDisplayModal={setDisplayModal}
-        openModal={openModal}
+        openModal={openModal} // Pass openModal function to PhotoList
       />
 
-      {isModalOpen && selectedPhoto && (
-  <PhotoDetailsModal photo={selectedPhoto} onClose={closeModal} />
-)}
     </div>
   );
 };

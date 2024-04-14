@@ -4,8 +4,10 @@ import FavBadge from './FavBadge';
 import '../styles/TopNavigationBar.scss'
 import FavIcon from './FavIcon';
 
-const TopNavigation = ({ topics, onLoadTopic, displayAlert }) => {
-  const isFavorited = displayAlert;
+const TopNavigation = ({ topics, onLoadTopic, numFavoritedPhotos }) => {
+
+  const displayAlert = numFavoritedPhotos > 0;
+
   
   return (  
     <div className="top-nav-bar">
@@ -13,8 +15,8 @@ const TopNavigation = ({ topics, onLoadTopic, displayAlert }) => {
       
         <TopicList topics={topics} onLoadTopic={onLoadTopic}/>
         
-        <FavIcon isFavorited={isFavorited} selected={true} displayAlert={displayAlert}/>
-        
+        <FavIcon selected={true} displayAlert={displayAlert}/>
+     
          
     </div>
   )
