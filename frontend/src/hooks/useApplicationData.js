@@ -108,7 +108,6 @@ const useApplicationData = () => {
   }, [state.selectedTopic]);
 
   const setSelectedTopic = (id) => {
-    console.log("topic id", id);
     dispatch({ type: ACTIONS.SET_SELECTED_TOPIC, payload: id });
   };
 

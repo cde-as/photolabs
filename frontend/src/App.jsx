@@ -18,8 +18,6 @@ const App = () => {
 
   const { displayModal, favoritedPhotos, selectedPhoto, similarPhotos } = state;
 
-  console.log("Similar Photos", similarPhotos, state.similarPhotos);
-  console.log("Selected Photos", selectedPhoto?.similar_photos);
   return (
     <div className="App">
       <HomeRoute
