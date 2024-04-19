@@ -18,12 +18,19 @@ const HomeRoute = ({
   toggleFavorite,
   displayAlert,
   openModal,
-  numFavoritedPhotos
+  numFavoritedPhotos,
+  setSelectedTopic,
+  onLoadTopic,
 }) => {
-
   return (
     <div className="home-route">
-      <TopNavigationBar topics={topics} displayAlert={displayAlert} numFavoritedPhotos={numFavoritedPhotos} />
+      <TopNavigationBar
+        topics={topics}
+        displayAlert={displayAlert}
+        numFavoritedPhotos={numFavoritedPhotos}
+        setSelectedTopic={setSelectedTopic}
+        onLoadTopic={onLoadTopic}
+      />
 
       <PhotoList
         photos={photos.map((photo) => ({
@@ -35,7 +42,6 @@ const HomeRoute = ({
         setDisplayModal={setDisplayModal}
         openModal={openModal} // Pass openModal function to PhotoList
       />
-
     </div>
   );
 };

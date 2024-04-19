@@ -2,39 +2,34 @@ import React from "react";
 import HomeRoute from "routes/HomeRoute";
 import PhotoDetailsModal from "routes/PhotoDetailsModal";
 import useApplicationData from "hooks/useApplicationData";
-import photos from "mocks/photos";
-import topics from "mocks/topics";
-
-
 
 import "./App.scss";
-// TODO:
-// 1. implement the modal log to show this photo details
-// 2. implement the modal to show the photo details
 
-// Note: Rendering a single component to build components in isolation
 const App = () => {
   const {
     state,
     toggleFavorite,
     openModal,
     closeModal,
-    numFavoritedPhotos
+    numFavoritedPhotos,
+    setSelectedTopic,
+    onLoadTopic,
+    similarPhotos,
   } = useApplicationData();
 
-  const { displayModal, favoritedPhotos, selectedPhoto} = state;
+  const { displayModal, favoritedPhotos, selectedPhoto } = state;
 
-  
   return (
     <div className="App">
-     
       <HomeRoute
-        photos={photos}
-        topics={topics}
+        photos={state.photoData}
+        topics={state.topicData}
         favoritedPhotos={favoritedPhotos}
         toggleFavorite={toggleFavorite}
         openModal={openModal}
         numFavoritedPhotos={numFavoritedPhotos}
+        setSelectedTopic={setSelectedTopic}
+        onLoadTopic={onLoadTopic}
       />
 
       {displayModal && (
@@ -43,6 +38,7 @@ const App = () => {
           photo={selectedPhoto}
           favoritedPhotos={favoritedPhotos}
           toggleFavorite={toggleFavorite}
+          similarPhotos={state.similarPhotos}
         />
       )}
     </div>

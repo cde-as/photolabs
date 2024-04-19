@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 import PhotoList from "../components/PhotoList";
 import PhotoFavButton from "../components/PhotoFavButton";
 import "../styles/PhotoDetailsModal.scss";
@@ -8,16 +7,15 @@ import closeSymbol from "../assets/closeSymbol.svg";
 const PhotoDetailsModal = ({
   onClose,
   photo,
-  photos,
   topics,
   setDisplayModal,
   toggleFavorite,
   favoritedPhotos,
+  similarPhotos,
 }) => {
-
   // Function to handle closing the modal
   const closeModal = () => {
-    setIsModalOpen(false);
+    onClose();
   };
 
   return (
@@ -57,8 +55,7 @@ const PhotoDetailsModal = ({
           </div>
         </div>
 
-
-        <div className="photo-list__separator"></div> 
+        <div className="photo-list__separator"></div>
 
         <div className="photo-details-modal__header">Similar Photos</div>
 
@@ -73,10 +70,10 @@ const PhotoDetailsModal = ({
 
         {photo.selectedPhoto && (
           <PhotoDetailsModal
-            photo={selectedPhoto}
+            photo={photo.selectedPhoto}
             onClose={closeModal}
             favoritedPhotos={favoritedPhotos}
-            //setFavoritedPhotos={favoritedPhotos}
+            similarPhotos={photo.similar_photos}
           />
         )}
       </div>

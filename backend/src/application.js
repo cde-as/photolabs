@@ -1,3 +1,5 @@
+/* eslint-disable func-style */
+/* eslint-disable func-names */
 const fs = require("fs");
 const path = require("path");
 
@@ -8,7 +10,7 @@ const cors = require("cors");
 
 const app = express();
 
-const db = require("./db")
+const db = require("./db");
 
 const photos = require("./routes/photos");
 const topics = require("./routes/topics");
