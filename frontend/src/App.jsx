@@ -14,11 +14,12 @@ const App = () => {
     numFavoritedPhotos,
     setSelectedTopic,
     onLoadTopic,
-    similarPhotos,
   } = useApplicationData();
 
-  const { displayModal, favoritedPhotos, selectedPhoto } = state;
+  const { displayModal, favoritedPhotos, selectedPhoto, similarPhotos } = state;
 
+  console.log("Similar Photos", similarPhotos, state.similarPhotos);
+  console.log("Selected Photos", selectedPhoto?.similar_photos);
   return (
     <div className="App">
       <HomeRoute
@@ -38,7 +39,7 @@ const App = () => {
           photo={selectedPhoto}
           favoritedPhotos={favoritedPhotos}
           toggleFavorite={toggleFavorite}
-          similarPhotos={state.similarPhotos}
+          similarPhotos={similarPhotos}
         />
       )}
     </div>

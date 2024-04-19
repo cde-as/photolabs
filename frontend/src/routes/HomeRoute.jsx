@@ -21,6 +21,7 @@ const HomeRoute = ({
   numFavoritedPhotos,
   setSelectedTopic,
   onLoadTopic,
+  similarPhotos,
 }) => {
   return (
     <div className="home-route">
@@ -35,7 +36,7 @@ const HomeRoute = ({
       <PhotoList
         photos={photos.map((photo) => ({
           ...photo,
-          similar_photos: photo.similar_photos,
+          similarPhotos: photo.similar_photos,
         }))}
         favoritedPhotos={favoritedPhotos}
         toggleFavorite={toggleFavorite}

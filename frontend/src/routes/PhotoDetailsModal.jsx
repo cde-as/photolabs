@@ -18,6 +18,9 @@ const PhotoDetailsModal = ({
     onClose();
   };
 
+  // console.log("photo.similarPhotos", photo.similarPhotos)
+  console.log("Photo Details Modal Similar Photos:", similarPhotos);
+
   return (
     <div className="photo-details-modal">
       <button className="photo-details-modal__close-button" onClick={onClose}>
@@ -61,21 +64,13 @@ const PhotoDetailsModal = ({
 
         <div className="photo-details-modal__images">
           <PhotoList
-            photos={photo.similar_photos}
+            photos={similarPhotos}
             favoritedPhotos={favoritedPhotos}
             toggleFavorite={toggleFavorite}
             setDisplayModal={setDisplayModal}
           />
         </div>
 
-        {photo.selectedPhoto && (
-          <PhotoDetailsModal
-            photo={photo.selectedPhoto}
-            onClose={closeModal}
-            favoritedPhotos={favoritedPhotos}
-            similarPhotos={photo.similar_photos}
-          />
-        )}
       </div>
     </div>
   );

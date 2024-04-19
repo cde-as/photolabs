@@ -40,10 +40,12 @@ function reducer(state, action) {
       }
 
     case ACTIONS.OPEN_MODAL:
+      console.log("Open modal useapp", action.payload);
       return {
         ...state,
         selectedPhoto: action.payload,
         displayModal: true,
+        //similarPhotos: action.payload.similarPhotos,
       };
 
     case ACTIONS.CLOSE_MODAL:
@@ -115,10 +117,11 @@ const useApplicationData = () => {
   };
 
   const openModal = (photo) => {
+    console.log("open modal", photo);
     dispatch({ type: ACTIONS.OPEN_MODAL, payload: photo });
     dispatch({
       type: ACTIONS.SET_SIMILAR_PHOTOS,
-      payload: photo.similar_photos,
+      payload: photo.similarPhotos,
     });
   };
 
