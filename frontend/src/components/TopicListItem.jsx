@@ -15,8 +15,6 @@ const TopicListItem = ({ id, label, link, onLoadTopic }) => (
 TopicListItem.defaultProps = {
   id: 1,
   label: "Nature",
-  // TODO: We don't need a link.
-  link: "insert link",
 };
 
 export default TopicListItem;

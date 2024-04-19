@@ -18,9 +18,6 @@ const PhotoDetailsModal = ({
     onClose();
   };
 
-  // console.log("photo.similarPhotos", photo.similarPhotos)
-  console.log("Photo Details Modal Similar Photos:", similarPhotos);
-
   return (
     <div className="photo-details-modal">
       <button className="photo-details-modal__close-button" onClick={onClose}>
@@ -70,7 +67,6 @@ const PhotoDetailsModal = ({
             setDisplayModal={setDisplayModal}
           />
         </div>
-
       </div>
     </div>
   );

@@ -22,3 +22,9 @@ Read `backend/readme` for further setup details.
 cd backend
 npm start
 ```
+
+## Main Page View
+
+## Modal View with Similar Photos
+
+## Navigation Bar Features

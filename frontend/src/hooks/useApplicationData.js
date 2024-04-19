@@ -40,7 +40,6 @@ function reducer(state, action) {
       }
 
     case ACTIONS.OPEN_MODAL:
-      console.log("Open modal useapp", action.payload);
       return {
         ...state,
         selectedPhoto: action.payload,
@@ -98,7 +97,6 @@ const useApplicationData = () => {
           return res.json();
         })
         .then((data) => {
-          console.log("topic data", data);
           dispatch({ type: ACTIONS.GET_PHOTOS_BY_TOPICS, payload: data });
         })
         .catch((error) =>
@@ -116,7 +114,6 @@ const useApplicationData = () => {
   };
 
   const openModal = (photo) => {
-    console.log("open modal", photo);
     dispatch({ type: ACTIONS.OPEN_MODAL, payload: photo });
     dispatch({
       type: ACTIONS.SET_SIMILAR_PHOTOS,
